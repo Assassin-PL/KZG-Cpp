@@ -41,12 +41,41 @@ string generuj_prompty(int liczba_promptow) {
         "hip-hop", "surrealistyczny", "street art", "w stylu mangi", "w stylu LEGO", "w stylu Minecraft"
     };
     //Część pierwsza
-    
-    
-}
+    string prompty = "";
+    for ( int i = 0 ; i < liczba_promptow; i++)
+        {
+            prompty += generuj_prompt(przedmioty, akcje, miejsca, style) + "\n";
+        }
+    return prompty;
+    }
+
 int main() {
-//Część druga
- 
- 
-return 0;
+    //Część druga
+    srand(time(0));
+    
+    cout << "Witaj w programie do generowania promptów" << endl;
+    cout << "Wprowadź liczbę promptów do wygenerowania: ";
+
+    int liczba_promptow;
+    cin >> liczba_promptow;
+    cin.ignore(); // Usunięcie znaku nowej linii z bufora
+
+    cout << "Każde naciśnięcie ENTER wygeneruje nowy zestaw promptów." << endl;
+    cout << "Wpisz 'koniec' i naciśnij ENTER, aby zakończyć program." << endl;
+    
+    string komenda;
+    
+    while(true){
+        cout << ">";
+        getline(cin,komenda);
+        if (komenda == "koniec"){
+            break;
+        }
+        string prompty = generuj_prompty(liczba_promptow);
+        cout << prompty << endl;
+    }
+    
+    cout << " dzieki za skorzystanie z naszego programu";
+    
+    return 0;
 }
